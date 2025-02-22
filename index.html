@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EV Car Comparison in India (2025)</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+    }
+
+    .filters {
+      padding: 20px;
+      text-align: center;
+      background-color: #ffffff;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .filters label {
+      font-size: 1.1rem;
+      margin-right: 10px;
+    }
+
+    .filters select {
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .comparison-table {
+      margin: 20px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #007bff;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>EV Car Comparison in India (2025)</h1>
+    <p>Compare the best electric vehicles in India based on price, range, battery, and more.</p>
+  </header>
+
+  <section class="filters">
+    <label for="filter">Filter by:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="hatchback">Hatchback</option>
+      <option value="suv">SUV</option>
+      <option value="sedan">Sedan</option>
+    </select>
+  </section>
+
+  <section class="comparison-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Price (₹ Lakh)</th>
+          <th>Range (Km)</th>
+          <th>Battery (kWh)</th>
+          <th>Charging Time</th>
+          <th>Body Type</th>
+          <th>Key Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data rows will be populated here -->
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ by EV Enthusiasts</p>
+  </footer>
+
+  <script>
+    // EV Data
+    const evData = [
+      {
+        model: "MG Comet EV",
+        price: "6.9 - 8.5",
+        range: "200 - 230",
+        battery: "17 - 20",
+        chargingTime: "3 - 5 hrs (AC)",
+        bodyType: "Hatchback",
+        keyFeatures: "Compact, affordable, 2-door, city car",
+      },
+      {
+        model: "Tata Tiago EV",
+        price: "7.9 - 11.8",
+        range: "250 - 315",
+        battery: "24 - 25",
+        chargingTime: "3.5 - 5 hrs (AC)",
+        bodyType: "Hatchback",
+        keyFeatures: "Affordable, city-friendly, touchscreen infotainment",
+      },
+      {
+        model: "Tata Punch EV",
+        price: "10.99 - 14.49",
+        range: "315 - 421",
+        battery: "25 - 35",
+        chargingTime: "3.5 - 5 hrs (AC)",
+        bodyType: "Compact SUV",
+        keyFeatures: "Higher ground clearance, spacious, 5-star safety rating",
+      },
+      {
+        model: "Tata Nexon EV",
+        price: "12.49 - 17.99",
+        range: "325 - 465",
+        battery: "30 - 40",
+        chargingTime: "3 - 6 hrs (AC)",
+        bodyType: "Compact SUV",
+        keyFeatures: "Feature-rich, sporty, fast charging option",
+      },
+      {
+        model: "Tata Curvv EV",
+        price: "17.49",
+        range: "450+",
+        battery: "~50 (Est.)",
+        chargingTime: "6 - 8 hrs (AC)",
+        bodyType: "Coupe SUV",
+        keyFeatures: "Stylish coupe SUV, premium features, long range",
+      },
+      {
+        model: "Mahindra XEV 9e",
+        price: "21.90",
+        range: "450+",
+        battery: "~50 (Est.)",
+        chargingTime: "6 - 8 hrs (AC)",
+        bodyType: "SUV",
+        keyFeatures: "Futuristic design, AI-assisted features",
+      },
+      {
+        model: "Mahindra BE 6",
+        price: "18.90",
+        range: "450+",
+        battery: "~50 (Est.)",
+        chargingTime: "6 - 8 hrs (AC)",
+        bodyType: "SUV",
+        keyFeatures: "Sporty SUV, connected car tech",
+      },
+      {
+        model: "Hyundai Creta EV",
+        price: "17.99",
+        range: "400+",
+        battery: "~50 (Est.)",
+        chargingTime: "6 - 8 hrs (AC)",
+        bodyType: "SUV",
+        keyFeatures: "Premium SUV, smooth drive",
+      },
+      {
+        model: "MG Windsor EV",
+        price: "~22.00 (Est.)",
+        range: "450+",
+        battery: "~50 (Est.)",
+        chargingTime: "6 - 8 hrs (AC)",
+        bodyType: "Sedan",
+        keyFeatures: "Luxury sedan, spacious, high-tech interiors",
+      },
+      {
+        model: "BYD Sealion 7",
+        price: "48.90",
+        range: "500+",
+        battery: "~80 (Est.)",
+        chargingTime: "6 - 9 hrs (AC)",
+        bodyType: "Large SUV",
+        keyFeatures: "High-end SUV, best-in-class range",
+      },
+    ];
+
+    // Populate Table
+    const tableBody = document.querySelector("tbody");
+
+    function populateTable(data) {
+      tableBody.innerHTML = "";
+      data.forEach((car) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${car.model}</td>
+          <td>${car.price}</td>
+          <td>${car.range}</td>
+          <td>${car.battery}</td>
+          <td>${car.chargingTime}</td>
+          <td>${car.bodyType}</td>
+          <td>${car.keyFeatures}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Filter Functionality
+    const filterSelect = document.getElementById("filter");
+
+    filterSelect.addEventListener("change", () => {
+      const selectedType = filterSelect.value;
+      const filteredData =
+        selectedType === "all"
+          ? evData
+          : evData.filter((car) => car.bodyType.toLowerCase().includes(selectedType));
+      populateTable(filteredData);
+    });
+
+    // Initial Load
+    populateTable(evData);
+  </script>
+</body>
+</html>
